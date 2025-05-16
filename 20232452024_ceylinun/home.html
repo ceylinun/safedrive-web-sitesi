@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiyat Hesaplama</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fiyat Hesaplama</h1>
+        
+        <div class="price-options">
+            <label><input type="checkbox" class="feature" value="10000"> Mobil Uyarı Sistemi</label>
+            <label><input type="checkbox" class="feature" value="15000"> Kolay Sökülebilir Tasarım</label>
+            <label><input type="checkbox" class="feature" value="20000"> Enerji Verimliliği</label>
+            <label><input type="checkbox" class="feature" value="25000"> Akıllı Yedekleme Sistemi</label>
+        </div>
+
+        <div class="price-display">
+            Toplam Fiyat: <span id="total-price">60.000</span> TL
+        </div>
+    </div>
+
+    <button id="logout-button">Çıkış Yap</button>
+
+    <script src="home.js"></script>
+    <script>
+        const basePrice = 60000;  // Başlangıç fiyatı 60.000 TL
+        const maxPrice = 150000;  // Maksimum fiyat 100.000 TL
+        const totalPriceElement = document.getElementById("total-price");
+
+        const checkboxes = document.querySelectorAll(".feature");
+        checkboxes.forEach(cb => {
+            cb.addEventListener("change", () => {
+                let total = basePrice;
+                checkboxes.forEach(c => {
+                    if (c.checked) total += parseInt(c.value);
+                });
+
+                if (total > maxPrice) {
+                    alert("Toplam fiyat 100.000 TL'yi geçemez!");
+                    cb.checked = false;
+                    return;
+                }
+
+                totalPriceElement.textContent = total.toLocaleString("tr-TR");
+            });
+        });
+    </script>
+</body>
+</html>

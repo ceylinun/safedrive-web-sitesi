@@ -1,0 +1,157 @@
+/* Genel Stil */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff7f7f, #ffe5e5); /* Soft kırmızı ve beyaz gradient arka plan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #5c2d2d; /* Koyu kırmızı */
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Container - İçerik Alanı */
+.container {
+    max-width: 650px;
+    width: 100%;
+    margin: 50px auto;
+    background: #f5f5f5; /* Soft beyaz arka plan */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    background-image: url('https://www.transparenttextures.com/patterns/white-lace.png');
+    background-size: cover;
+    transition: all 0.3s ease;
+}
+
+/* Başlık */
+.container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #5c2d2d; /* Koyu kırmızı */
+}
+
+/* Fiyat Seçenekleri */
+.price-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.price-options label {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #5c2d2d; /* Koyu kırmızı */
+    transition: all 0.3s ease;
+}
+
+.price-options label:hover {
+    background-color: #ff4b4b; /* Kırmızı tonunda hover efekti */
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Fiyat Yazısı */
+.price-display {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff4b4b; /* Kırmızı renk */
+    margin-top: 20px;
+    letter-spacing: 1px;
+    animation: priceUpdate 0.5s ease-in-out;
+}
+
+@keyframes priceUpdate {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Çıkış Butonu */
+#logout-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px 25px;
+    background-color: #f44336; /* Kırmızı renk */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: none;
+}
+
+#logout-button:hover {
+    background-color: #e53935; /* Hover efekti kırmızı */
+    transform: scale(1.05);
+}
+
+#logout-button:active {
+    background-color: #d32f2f;
+    transform: scale(0.98);
+}
+
+/* Duyarlı Tasarım */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .price-display {
+        font-size: 1.6rem;
+    }
+
+    .price-options {
+        flex-direction: column;
+    }
+
+    .price-options label {
+        font-size: 1rem;
+    }
+}
+
+#saatKutusu {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #f0f0f0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
